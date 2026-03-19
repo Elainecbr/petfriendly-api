@@ -393,6 +393,47 @@ Fluxo:
 ```
 
 ---
+<!-- ...existing code... -->
+
+## 👩‍🏫 Guia rápido para correção (Professor)
+
+### Pré-requisitos
+- Docker Desktop instalado e em execução.
+- Git instalado.
+
+### Passo a passo (API)
+1. Clonar o repositório:
+   ```bash
+   git clone https://github.com/Elainecbr/petfriendly-api.git
+   cd petfriendly-api
+   ```
+
+2. Criar o arquivo `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Preencher as chaves no `.env`:
+   - `GOOGLE_API_KEY=...`
+   - `OPENWEATHER_API_KEY=...`
+
+4. Subir com Docker:
+   ```bash
+   docker compose up --build
+   ```
+
+5. Acessar no navegador:
+   - Swagger: `http://127.0.0.1:8000/docs`
+   - Health: `http://127.0.0.1:8000/health`
+
+### Observações
+- Não é necessário criar `venv` para executar via Docker.
+- Para encerrar:
+  ```bash
+  docker compose down
+  ```
+
+<!-- ...existing code... -->
 
 ## 🚀 Pronto para entrega
 
