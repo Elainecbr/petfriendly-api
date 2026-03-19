@@ -149,13 +149,14 @@ erDiagram
 - **Git**
 - **Docker** (opcional, para executar em container)
 
-### Passo 1: Clonar o repositório
+### Passo 1: Clonar o repositório - Importante sem usar o docker, ou usando o docker
 ```bash
 git clone https://github.com/SEU_USUARIO/petfriendly-api.git
 cd petfriendly-api
 ```
 
-### Passo 2: Criar ambiente virtual
+
+### Passo 2: Criar ambiente virtual (sem o Docker)
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate  # macOS/Linux
@@ -178,6 +179,8 @@ OPENWEATHER_API_KEY=sua_chave_openweather_aqui
 ```
 
 **Como obter as chaves:**
+ - Para os professores vou enviar as chaves separadamente na mensagem anexada ao projeto
+
 - **Google API Key**: https://console.cloud.google.com  
   (ativar Google Places API + Google Directions API)
 - **OpenWeather API Key**: https://openweathermap.org/api
@@ -193,7 +196,25 @@ Abrir no navegador:
 
 ---
 
-## 🐳 Execução com Docker
+## 🐳 Execução com Docker para o API - (recomendado) testado e funciona
+### Rodar com docker-compose (recomendado)
+#### Antes de usar o docker-compose -> Configurar variáveis de ambiente
+ - Para os professores vou enviar as chaves separadamente na mensagem anexada ao projeto
+
+Criar arquivo `.env` na raiz:
+
+```env
+GOOGLE_API_KEY=sua_chave_google_aqui
+OPENWEATHER_API_KEY=sua_chave_openweather_aqui
+```
+
+
+```bash - terminal
+1 - git clone https://github.com/Elainecbr/petfriendly-api.git
+2 - cd petfriendly-api
+3 - docker compose up --build
+```
+----
 
 ### Build da imagem
 ```bash
@@ -210,8 +231,11 @@ docker run --rm -p 8000:8000 --env-file .env petfriendly-api:latest
 docker compose up --build
 ```
 
-Abrir:
+### Abrir swagger:
+
 - `http://127.0.0.1:8000/docs`
+<img width="817" height="554" alt="image" src="https://github.com/user-attachments/assets/1e3c73e3-554e-4c98-90b6-0040b86240ef" />
+
 
 ### Parar container
 ```bash
@@ -220,31 +244,43 @@ docker compose down
 
 ---
 
-## 🔌 Uso da API
+## 🔌 Uso da API - testes  no localhost - no navegador
 
 ### Health Check
 ```bash
 curl http://127.0.0.1:8000/health
 ```
+no navegador  http://127.0.0.1:8000/health
 
 Resposta:
 ```json
 {"status": "ok"}
 ```
+<img width="650" height="134" alt="image" src="https://github.com/user-attachments/assets/6a9a03dd-564e-400d-8b68-5d0592c60511" />
+
 
 ### 1. Listar categorias
 ```bash
 curl http://127.0.0.1:8000/categories/
 ```
+no navegador http://127.0.0.1:8000/categories/
+<img width="714" height="413" alt="image" src="https://github.com/user-attachments/assets/cb795025-09fb-419f-a441-e8ea57fbcaa3" />
+
 
 ### 2. Buscar locais pet friendly
 ```bash
 curl "http://127.0.0.1:8000/places/search?location=Copacabana&keyword=pet+friendly&radius=3000"
 ```
+no navegador [http://127.0.0.1:8000/categories/](http://127.0.0.1:8000/places/search?location=Copacabana&keyword=pet+friendly&radius=3000)
 
+<img width="692" height="639" alt="image" src="https://github.com/user-attachments/assets/7d7afbf9-55c5-44de-aeef-a2d9d1a1889f" />
+
+ 
 ### 3. Calcular rota
 ```bash
 curl "http://127.0.0.1:8000/places/route?origin=Copacabana&destination=Dog's+Beach+Club&mode=walking"
+no navegador http://127.0.0.1:8000/places/route?origin=Copacabana&destination=Dog's+Beach+Club&mode=walking
+
 ```
 
 ### 4. Easy Login (criar/atualizar usuário)
@@ -362,7 +398,7 @@ Fluxo:
 
 - ✅ Dockerfile na raiz
 - ✅ docker-compose.yml na raiz
-- ✅ .env.example com template
+- ✅ .env.example com template - modelo como base para Criar arquivo `.env` na raiz 
 - ✅ Todos os arquivos comentados
 - ✅ DER em Mermaid
 - ✅ README completo
