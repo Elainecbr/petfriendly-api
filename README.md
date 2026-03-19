@@ -198,7 +198,7 @@ Abrir no navegador:
 
 ## 🐳 Execução com Docker para o API - (recomendado) testado e funciona
 ### Rodar com docker-compose (recomendado)
-#### Antes de usar o docker-compose -> Configurar variáveis de ambiente
+#### Antes de usar o docker-compose -> Configurar variáveis de ambiente no diretorio clonado
  - Para os professores vou enviar as chaves separadamente na mensagem anexada ao projeto
 
 Criar arquivo `.env` na raiz:
