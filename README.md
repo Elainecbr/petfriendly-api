@@ -3,10 +3,11 @@
 Este projeto é um sistema para busca de lugares pet-friendly, incluindo parques, praças e estabelecimentos, com funcionalidades de cálculo de distância e rotas. O sistema é dividido em duas partes principais: a API (Back-End) e o Dashboard (Front-End).
 
 ### Front-End funcional
-![](assets/17738809663888.jpg)
+localfile://path?assets/17738809663888.jpg<img width="1479" height="1281" alt="image" src="https://github.com/user-attachments/assets/4fe420bc-df79-48d1-b8ca-9f8b3dd1779e" />
 
 ### Mockup gráfico elaborado por mim como base para a página web 
-![](assets/17738811094604.jpg)
+
+localfile://path?assets/17738811094604.jpg<img width="2217" height="1198" alt="image" src="https://github.com/user-attachments/assets/77989d08-7f7c-45f4-9273-6b7231d3bd50" />
 
 
 # PetFriendly API 🐾
