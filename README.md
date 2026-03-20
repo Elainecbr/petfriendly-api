@@ -7,7 +7,7 @@ localfile://path?assets/17738809663888.jpg<img width="1479" height="1281" alt="i
 
 ### Mockup gráfico elaborado por mim como base para a página web 
 
-localfile://path?assets/17738811094604.jpg<img width="2217" height="1198" alt="image" src="https://github.com/user-attachments/assets/77989d08-7f7c-45f4-9273-6b7231d3bd50" />
+<img width="411" height="444" alt="grafik" src="https://github.com/user-attachments/assets/4e39e29b-f340-4171-9cf0-b06d06e6edc3" />
 
 
 # PetFriendly API 🐾
