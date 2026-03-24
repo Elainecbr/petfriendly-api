@@ -433,6 +433,65 @@ Fluxo:
   docker compose down
   ```
 
+  <!-- ...existing code... -->
+
+## Arquitetura e Estratégia de Comunicação
+
+O projeto segue arquitetura **cliente-servidor**:
+
+- **Dashboard (Front-end)**: interface web.
+- **PetFriendly API (Back-end)**: FastAPI com organização modular (`routes`, `services`, `models`, `schemas`).
+- **Banco local**: SQLite (`petfriendly.db`).
+
+A comunicação é feita por **REST sobre HTTP com JSON**, no modelo **síncrono request-response**.  
+O contrato da API é documentado automaticamente por **OpenAPI/Swagger** (`/docs`).
+
+```mermaid
+flowchart LR
+    U[Usuário] --> FE[Dashboard]
+    FE -->|HTTP REST + JSON| API[PetFriendly API - FastAPI]
+    API <--> DB[(SQLite)]
+    API <--> GP[Google Places API]
+    API <--> GR[Google Routes/Directions API]
+    API <--> OW[OpenWeather API]
+    API <-->|JSON| FE
+```
+
+### Fluxo de execução
+
+1. Usuário interage no dashboard.  
+2. Front-end envia requisição para a API.  
+3. API valida dados com Pydantic.  
+4. API executa regras de negócio na camada de services.  
+5. API consulta SQLite e/ou APIs externas.  
+6. API retorna JSON para o front-end renderizar resultados.
+
+```mermaid
+sequenceDiagram
+    participant U as Usuário
+    participant FE as Front-end
+    participant API as FastAPI
+    participant SV as Services
+    participant DB as SQLite
+    participant EXT as APIs Externas
+
+    U->>FE: Interação na interface
+    FE->>API: Requisição HTTP/JSON
+    API<<->>SV: Validação + regra de negócio
+    SV->>DB: Leitura/Gravação (quando necessário)
+    SV->>EXT: Consulta externa (quando necessário)
+    API<<-->>FE: Resposta JSON
+    FE-->>U: Exibição no dashboard
+```
+
+### APIs externas utilizadas
+
+- **Google Places API**: busca de locais pet friendly.
+- **Google Routes/Directions API**: cálculo de rotas (distância, duração e modo).
+- **OpenWeather API**: clima (temperatura, chuva e umidade).
+
+<!-- ...existing code... -->
+
 <!-- ...existing code... -->
 
 ## 🚀 Pronto para entrega
