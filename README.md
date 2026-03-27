@@ -91,7 +91,8 @@ petfriendly-api/
 ---
 
 ## 🏗️ Arquitetura e Fluxo
-<img width="700" height="787" alt="image" src="https://github.com/user-attachments/assets/47109045-eceb-4614-ae7e-8dc9bb481669" />
+<img width="1400" height="1574" alt="image" src="https://github.com/user-attachments/assets/907d07ef-eec4-4e5e-8102-9cc259c679b7" />
+
 
 
 ```mermaid
